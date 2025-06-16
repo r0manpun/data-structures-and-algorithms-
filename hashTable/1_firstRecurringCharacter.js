@@ -17,17 +17,25 @@ function firstRecurringCharacter(arr) {
   for (let i = 0; i < arr.length; i++) {
     for (let j = i + 1; j < arr.length; j++) {
       if (arr[i] === arr[j]) {
-        return arr[j];
+        return arr[i];
       }
     }
   }
-
-  // loop throgh the array
-  // if array at i = hashmap[i]
-  // retun hashmap
-  // undefined
   return undefined;
 }
+// changed to this so it can return the element that recurs
+function firstRecurringCharacter1(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < i; j++) {
+      if (arr[i] === arr[j]) {
+        return arr[i];
+      }
+    }
+  }
+  return undefined;
+}
+// time complexity -O(n^2)
+// space complexity - O(1)
 
 // Hash Map
 function firstRecurringCharacter2(arr) {
@@ -41,6 +49,8 @@ function firstRecurringCharacter2(arr) {
   }
   return undefined;
 }
+// time complexity - O(n)
+// space complexity - O(n)
 
 // Hash Set
 function firstRecurringCharacter3(arr) {
@@ -55,6 +65,6 @@ function firstRecurringCharacter3(arr) {
   return undefined;
 }
 
-console.log(firstRecurringCharacter3([2, 5, 1, 2, 3, 5, 1, 2, 4])); // 2
-console.log(firstRecurringCharacter3([2, 1, 1, 2, 3, 5, 1, 2, 4])); // 1
-console.log(firstRecurringCharacter3([2, 3, 4, 5]));
+console.log(firstRecurringCharacter1([2, 5, 1, 2, 3, 5, 1, 2, 4])); // 2
+console.log(firstRecurringCharacter1([2, 1, 1, 2, 3, 5, 1, 2, 4])); // 1
+console.log(firstRecurringCharacter1([2, 3, 4, 5]));
